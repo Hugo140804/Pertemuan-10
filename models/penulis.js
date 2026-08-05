@@ -22,4 +22,5 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'penulis',
     timestamps: false
   });
-    
+    return Penulis;
+};
