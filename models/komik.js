@@ -21,4 +21,25 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        
+        genre_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+    }, {
+        tableName: 'komik',
+        timestamps: false,
+    });
+
+    komik.associate = (models) => {
+        komik.belongsTo(models.Penulis, {
+            foreignKey: 'penulis_id',
+            as: 'penulis',
+        });
+
+        komik.belongsToMany(models.Genre, {
+            foreignKey: 'genre_id',
+            through: 'komik_id',
+            as: 'genre',
+        });
+    }
+};
