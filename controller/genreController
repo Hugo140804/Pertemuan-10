@@ -11,4 +11,5 @@ async function getAllGenre(req, res) {
 }
 
 async function getGenreById(req, res) {
+    const { id } = req.params;
     
